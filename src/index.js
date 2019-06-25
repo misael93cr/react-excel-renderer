@@ -16,12 +16,8 @@ export class OutTable extends Component {
                 <table className={this.props.tableClassName}  >                                       
                     <tbody>
                         <tr>
-                            {
-                                this.props.columns.map((c) => 
-                                    <th key={c.key} className={c.key === -1 ? this.props.tableHeaderRowClass : ""}>{c.key === -1 ? "" : c.name}</th>
-                                )
-                            
-                            }
+                          <th className={this.props.tableHeaderRowClass || ""}></th>
+                          {this.props.columns.map((c) => <th key={c.key}>{c.name}</th>)}
                         </tr>
                         {this.props.data.map((r,i) => <tr key={i}><td key={i} className={this.props.tableHeaderRowClass}>{i}</td>
                             {this.props.columns.map(c => <td key={c.key}>{ r[c.key] }</td>)}
@@ -42,8 +38,8 @@ export function ExcelRenderer(file, callback) {
         var bstr = e.target.result;
         var wb = XLSX.read(bstr, { type: rABS ? "binary" : "array" });
   
-        /* Get first worksheet */
-        var wsname = wb.SheetNames[0];
+        /* Get second worksheet */
+        var wsname = wb.SheetNames[1];
         var ws = wb.Sheets[wsname];
   
         /* Convert array of arrays */
