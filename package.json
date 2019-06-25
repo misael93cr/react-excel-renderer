@@ -1,7 +1,7 @@
 {
-  "name": "react-excel-renderer",
+  "name": "react-excel-renderer-forked",
   "version": "1.1.0",
-  "description": "A react library to render and display excel sheets on webpage",
+  "description": "Forked from react-excel-renderer. A react library to render and display excel sheets on webpage",
   "main": "build/index.js",
   "mode": "production",
   "scripts": {
